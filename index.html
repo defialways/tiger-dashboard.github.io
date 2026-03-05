@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
@@ -5,11 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>🐯 小老虎智能助手监控看板</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
             background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
@@ -17,10 +14,7 @@
             color: #333;
             padding: 20px;
         }
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
+        .container { max-width: 1200px; margin: 0 auto; }
         .header {
             text-align: center;
             color: white;
@@ -30,15 +24,8 @@
             border-radius: 15px;
             backdrop-filter: blur(10px);
         }
-        .header h1 {
-            font-size: 2.5em;
-            margin-bottom: 10px;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
-        }
-        .header .subtitle {
-            opacity: 0.9;
-            font-size: 1.1em;
-        }
+        .header h1 { font-size: 2.5em; margin-bottom: 10px; text-shadow: 2px 2px 4px rgba(0,0,0,0.3); }
+        .header .subtitle { opacity: 0.9; font-size: 1.1em; }
         .grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
@@ -52,10 +39,7 @@
             box-shadow: 0 10px 40px rgba(0,0,0,0.2);
             transition: transform 0.3s, box-shadow 0.3s;
         }
-        .card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 50px rgba(0,0,0,0.3);
-        }
+        .card:hover { transform: translateY(-5px); box-shadow: 0 15px 50px rgba(0,0,0,0.3); }
         .card-header {
             display: flex;
             align-items: center;
@@ -63,31 +47,17 @@
             padding-bottom: 10px;
             border-bottom: 2px solid #f0f0f0;
         }
-        .card-icon {
-            font-size: 1.5em;
-            margin-right: 10px;
-        }
-        .card-title {
-            font-size: 1.2em;
-            font-weight: bold;
-            color: #2c3e50;
-        }
+        .card-icon { font-size: 1.5em; margin-right: 10px; }
+        .card-title { font-size: 1.2em; font-weight: bold; color: #2c3e50; }
         .stat-row {
             display: flex;
             justify-content: space-between;
             padding: 8px 0;
             border-bottom: 1px solid #f5f5f5;
         }
-        .stat-row:last-child {
-            border-bottom: none;
-        }
-        .stat-label {
-            color: #666;
-        }
-        .stat-value {
-            font-weight: bold;
-            color: #2c3e50;
-        }
+        .stat-row:last-child { border-bottom: none; }
+        .stat-label { color: #666; }
+        .stat-value { font-weight: bold; color: #2c3e50; }
         .token-big {
             font-size: 2em;
             color: #e74c3c;
@@ -106,7 +76,6 @@
         }
         .status-success { background: #d4edda; color: #155724; }
         .status-error { background: #f8d7da; color: #721c24; }
-        .status-running { background: #fff3cd; color: #856404; }
         .job-item {
             padding: 12px;
             margin: 8px 0;
@@ -115,7 +84,6 @@
             border-left: 4px solid #ddd;
         }
         .job-item.enabled { border-left-color: #28a745; }
-        .job-item.disabled { border-left-color: #dc3545; }
         .skill-tag {
             display: inline-block;
             padding: 5px 12px;
@@ -144,11 +112,7 @@
             background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
             transition: width 0.5s;
         }
-        @media (max-width: 768px) {
-            .grid {
-                grid-template-columns: 1fr;
-            }
-        }
+        @media (max-width: 768px) { .grid { grid-template-columns: 1fr; } }
     </style>
 </head>
 <body>
@@ -157,156 +121,81 @@
             <h1>🐯 小老虎智能助手监控看板</h1>
             <div class="subtitle">实时监控Agent状态、任务和Token使用</div>
         </div>
-        
         <div class="grid">
-            <!-- 系统状态 -->
             <div class="card">
                 <div class="card-header">
                     <span class="card-icon">💻</span>
                     <span class="card-title">系统状态</span>
                 </div>
-                <div class="stat-row">
-                    <span class="stat-label">当前时间</span>
-                    <span class="stat-value">2026-03-05 09:36</span>
-                </div>
-                <div class="stat-row">
-                    <span class="stat-label">主机名</span>
-                    <span class="stat-value">VM-4-9-opencloudos</span>
-                </div>
-                <div class="stat-row">
-                    <span class="stat-label">运行时长</span>
-                    <span class="stat-value">5天 13小时40分钟</span>
-                </div>
+                <div class="stat-row"><span class="stat-label">当前时间</span><span class="stat-value">2026-03-05 09:51</span></div>
+                <div class="stat-row"><span class="stat-label">主机名</span><span class="stat-value">VM-4-9-opencloudos</span></div>
+                <div class="stat-row"><span class="stat-label">运行时长</span><span class="stat-value">5天 13小时41分钟</span></div>
             </div>
-            
-            <!-- 会话统计 -->
             <div class="card">
                 <div class="card-header">
                     <span class="card-icon">💬</span>
                     <span class="card-title">会话统计</span>
                 </div>
-                <div class="stat-row">
-                    <span class="stat-label">总会话数</span>
-                    <span class="stat-value">6 个</span>
-                </div>
-                <div class="stat-row">
-                    <span class="stat-label">总大小</span>
-                    <span class="stat-value">N/A</span>
-                </div>
-                <div class="stat-row">
-                    <span class="stat-label">当前会话</span>
-                    <span class="stat-value">19 KB</span>
-                </div>
-                <div class="progress-bar">
-                    <div class="progress-fill" style="width: 7%"></div>
-                </div>
+                <div class="stat-row"><span class="stat-label">总会话数</span><span class="stat-value">6 个</span></div>
+                <div class="stat-row"><span class="stat-label">活跃会话</span><span class="stat-value">1 个</span></div>
+                <div class="stat-row"><span class="stat-label">当前会话Token</span><span class="stat-value">35.3K</span></div>
             </div>
-            
-            <!-- Token使用 -->
             <div class="card">
                 <div class="card-header">
                     <span class="card-icon">🎯</span>
                     <span class="card-title">Token使用 (所有会话)</span>
                 </div>
-                <div class="token-big">
-                    72.44K<br>
-                    <small style="font-size: 0.5em; color: #666;">总Token</small>
-                </div>
-                <div class="stat-row">
-                    <span class="stat-label">输入Token</span>
-                    <span class="stat-value">71.61K</span>
-                </div>
-                <div class="stat-row">
-                    <span class="stat-label">输出Token</span>
-                    <span class="stat-value">831</span>
-                </div>
-                <div class="stat-row">
-                    <span class="stat-label">AI消息数</span>
-                    <span class="stat-value">N/A 条</span>
-                </div>
+                <div class="token-big">117.3K<br><small style="font-size: 0.5em; color: #666;">总Token</small></div>
+                <div class="stat-row"><span class="stat-label">主会话</span><span class="stat-value">35.3K</span></div>
+                <div class="stat-row"><span class="stat-label">Cron任务</span><span class="stat-value">82.0K</span></div>
             </div>
-            
-            <!-- 定时任务 -->
             <div class="card">
                 <div class="card-header">
                     <span class="card-icon">⏰</span>
                     <span class="card-title">定时任务 (Cron)</span>
                 </div>
-                
-            <div class="job-item enabled">
-                <div style="display: flex; justify-content: space-between; align-items: center;">
-                    <strong>x-daily-digest</strong>
-                    <span class="status-badge status-running">running</span>
+                <div class="job-item enabled">
+                    <div style="display: flex; justify-content: space-between; align-items: center;">
+                        <strong>x-daily-digest</strong>
+                        <span class="status-badge status-error">error</span>
+                    </div>
+                    <div style="color: #666; font-size: 0.9em; margin-top: 5px;">下次运行: 03-06 01:00</div>
                 </div>
-                <div style="color: #666; font-size: 0.9em; margin-top: 5px;">
-                    下次运行: 03-06 01:00
-                </div>
-            </div>
-            
-            <div class="job-item enabled">
-                <div style="display: flex; justify-content: space-between; align-items: center;">
-                    <strong>update-dashboard-daily</strong>
-                    <span class="status-badge status-running">running</span>
-                </div>
-                <div style="color: #666; font-size: 0.9em; margin-top: 5px;">
-                    下次运行: 03-06 02:00
+                <div class="job-item enabled">
+                    <div style="display: flex; justify-content: space-between; align-items: center;">
+                        <strong>update-dashboard-daily</strong>
+                        <span class="status-badge status-error">error</span>
+                    </div>
+                    <div style="color: #666; font-size: 0.9em; margin-top: 5px;">下次运行: 03-06 02:00</div>
                 </div>
             </div>
-            
-            </div>
-            
-            <!-- 已安装技能 -->
             <div class="card">
                 <div class="card-header">
                     <span class="card-icon">🛠️</span>
-                    <span class="card-title">已安装技能 (13个)</span>
+                    <span class="card-title">已安装技能 (21个)</span>
                 </div>
                 <div style="padding: 10px 0;">
-                    <span class="skill-tag">tavily-search</span><span class="skill-tag">summarize</span><span class="skill-tag">agent-browser</span><span class="skill-tag">find-skills</span><span class="skill-tag">github</span><span class="skill-tag">obsidian</span><span class="skill-tag">notion</span><span class="skill-tag">weather</span><span class="skill-tag">tencentcloud-lighthouse-skill</span><span class="skill-tag">self-improving-agent</span><span class="skill-tag">agent-reach</span><span class="skill-tag">skill-creator</span><span class="skill-tag">healthcheck</span>
+                    <span class="skill-tag">agent-browser</span><span class="skill-tag">agent-reach</span><span class="skill-tag">find-skills</span><span class="skill-tag">github</span><span class="skill-tag">notion</span><span class="skill-tag">obsidian</span><span class="skill-tag">self-improvement</span><span class="skill-tag">summarize</span><span class="skill-tag">tavily</span><span class="skill-tag">tencentcloud-lighthouse</span><span class="skill-tag">weather</span><span class="skill-tag">clawhub</span><span class="skill-tag">gh-issues</span><span class="skill-tag">healthcheck</span><span class="skill-tag">skill-creator</span><span class="skill-tag">qqbot-cron</span><span class="skill-tag">qqbot-media</span><span class="skill-tag">feishu-doc</span><span class="skill-tag">feishu-drive</span><span class="skill-tag">feishu-perm</span><span class="skill-tag">feishu-wiki</span>
                 </div>
             </div>
-            
-            <!-- 系统资源 -->
             <div class="card">
                 <div class="card-header">
                     <span class="card-icon">📊</span>
                     <span class="card-title">系统资源</span>
                 </div>
-                <div class="stat-row">
-                    <span class="stat-label">内存使用</span>
-                    <span class="stat-value">979Mi / 1.9Gi</span>
-                </div>
-                <div class="progress-bar">
-                    <div class="progress-fill" style="width: 51.5%"></div>
-                </div>
-                <div class="stat-row" style="margin-top: 10px;">
-                    <span class="stat-label">磁盘使用</span>
-                    <span class="stat-value">23G / 50G</span>
-                </div>
-                <div class="progress-bar">
-                    <div class="progress-fill" style="width: 46%"></div>
-                </div>
+                <div class="stat-row"><span class="stat-label">内存使用</span><span class="stat-value">968Mi / 1.9Gi</span></div>
+                <div class="progress-bar"><div class="progress-fill" style="width: 51%"></div></div>
+                <div class="stat-row" style="margin-top: 10px;"><span class="stat-label">磁盘使用</span><span class="stat-value">23G / 50G</span></div>
+                <div class="progress-bar"><div class="progress-fill" style="width: 46%"></div></div>
             </div>
         </div>
-        
         <div class="refresh-info">
-            <p>🔄 页面每30秒自动刷新 | 最后更新: 2026-03-05 09:36</p>
+            <p>🔄 页面每30秒自动刷新 | 最后更新: 2026-03-05 09:51</p>
             <p>💡 提示: 可以按 F5 手动刷新</p>
         </div>
     </div>
-    
     <script>
-        // 30秒后自动刷新
-        setTimeout(function() {
-            location.reload();
-        }, 30000);
-        
-        // 显示倒计时
-        let countdown = 30;
-        setInterval(function() {
-            countdown--;
-            if (countdown <= 0) countdown = 30;
-        }, 1000);
+        setTimeout(function() { location.reload(); }, 30000);
     </script>
 </body>
 </html>
